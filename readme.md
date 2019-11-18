@@ -1,4 +1,4 @@
-# react-checklist
+# react-checklist [![Build Status](https://travis-ci.org/gtgalone/react-checklist.svg?branch=master)](https://travis-ci.org/gtgalone/react-checklist)
 
 React Hook Checkbox List. This module targets Node.js 6 or later.
 
