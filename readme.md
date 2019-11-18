@@ -105,34 +105,35 @@ export default () => {
 ## Parameters
 ### useChecklist(data, options)
 ### data
-Type: `Array`\
-Item list for check.
+Item list for check.\
+Type: `Array`
 
 ### options
 Type: `Object`
 
-- key\
-Type: `String`\
-Default: `'id'`\
-Unique key of item list for check.
+- `key`\
+  Unique key of item list for check.\
+  Type: `String`\
+  Default: `'id'`
+
 
 ## Return
 
 ### isCheckedAll
-Type: `Boolean`\
-Check all item reference.
+Check all item reference.\
+Type: `Boolean`
 
 ### checkedItems
-Type: `Set`\
-Set of checked items.
+Set of checked items.\
+Type: `Set`
 
 ### setCheckedItems
-Type: `(Set) => void`\
-'setState' function for checkedItems.
+Function for setting checkedItems state.\
+Type: `(Set) => void`
 
 ### handleCheck
-Type: `(Event) => void`\
-Trigger onChange event for item list.
+Trigger onChange event for item list.\
+Type: `(Event) => void`
 
 ## Maintainer
 
