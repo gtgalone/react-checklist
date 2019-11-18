@@ -31,7 +31,7 @@ export default () => {
       <li>
         <input
           type="checkbox"
-          ref={checkAllRef}
+          ref={checkAllRef} // 1
         />
         <label>label</label>
       </li>
@@ -40,9 +40,9 @@ export default () => {
         <li key={i}>
           <input
             type="checkbox"
-            data-id={v.id}
-            onChange={handleChange}
-            checked={checkedItem.has(v.id)}
+            data-id={v.id} // 2
+            onChange={handleChange} // 3
+            checked={checkedItem.has(v.id)} // 4
           />
           <label>{v.label}<label>
         </li>
@@ -58,12 +58,23 @@ export default () => {
 
 ### checkAllRef
 
-Type: `RefObject`
+Type: `RefObject`\
+Check all item reference.
 
 ### checkedItem
 
-Type: `Set`
+Type: `Set`\
+Set of checked item.
 
+### setCheckedItem
+
+Type: `(Set) => void`\
+'setState' function for checkedItem.
+
+### handleChange
+
+Type: `(Event) => void`\
+Trigger onChange event for item list.
 
 ## Maintainer
 
