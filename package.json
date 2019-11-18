@@ -1,0 +1,49 @@
+{
+	"name": "react-checklist",
+	"version": "0.0.1-alpha.1",
+	"description": "Make list with checkbox easy and simple",
+	"license": "MIT",
+	"repository": "gtgalone/react-checklist",
+	"author": {
+		"name": "Jehun Seem",
+		"email": "jehunseem@gmail.com",
+		"url": "https://github.com/gtgalone"
+	},
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"test": ""
+	},
+	"main": "lib/index.js",
+	"files": [
+		"lib"
+	],
+	"keywords": [
+		"checkbox",
+		"checklist",
+		"check",
+		"react-hook",
+		"react-checkbox",
+		"react-checklist",
+		"react-hook-checkbox",
+		"react-hook-checklist",
+		"usechecklist",
+		"usecheckbox"
+	],
+	"dependencies": {
+		"next": "9.1.3"
+	},
+	"peerDependencies": {
+		"react": "^16.12.0"
+	},
+	"devDependencies": {
+		"@types/react": "^16.9.11",
+		"tslint": "^5.20.1",
+		"tslint-config-prettier": "^1.18.0",
+		"tslint-eslint-rules": "^5.4.0",
+		"tslint-plugin-prettier": "^2.0.1",
+		"tslint-react": "^4.1.0",
+		"typescript": "^3.7.2"
+	}
+}
