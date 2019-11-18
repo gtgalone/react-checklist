@@ -84,7 +84,7 @@ export default () => {
 ```jsx
 
 export default () => {
-  const { handleCheck, isCheckedAll, checkedItems, setCheckedItems } = useChecklist(data);
+  const { setCheckedItems } = useChecklist(data);
 
   const handleReset = () => setCheckedItems(new Set());
 
