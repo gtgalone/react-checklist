@@ -13,7 +13,8 @@ $ npm install react-checklist
 ## Usage
 
 ```jsx
-const { useChecklist } = require('react-checklist');
+import { useChecklist } from 'react-checklist';
+// or const { useChecklist } = require('react-checklist');
 
 const data = [
   { id: 1, label: 'item 1' },
