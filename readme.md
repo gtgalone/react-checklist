@@ -2,11 +2,13 @@
 
 React Hook Checkbox List. This module targets Node.js 6 or later.
 
+
 ## Install
 
 ```
 $ npm install react-checklist
 ```
+
 
 ## Usage
 
@@ -60,3 +62,13 @@ Type: `RefObject`
 ### checkedItem
 
 Type: `Set`
+
+
+## Maintainer
+
+- [Jehun Seem](https://github.com/gtgalone)
+
+
+## License
+
+MIT
