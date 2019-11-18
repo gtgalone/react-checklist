@@ -31,7 +31,7 @@ export default () => {
       <li>
         <input
           type="checkbox"
-          ref={checkAllRef} // 1
+          ref={checkAllRef}                 // 1
         />
         <label>label</label>
       </li>
@@ -40,8 +40,8 @@ export default () => {
         <li key={i}>
           <input
             type="checkbox"
-            data-id={v.id} // 2
-            onChange={handleChange} // 3
+            data-id={v.id}                  // 2
+            onChange={handleChange}         // 3
             checked={checkedItem.has(v.id)} // 4
           />
           <label>{v.label}<label>
