@@ -103,7 +103,7 @@ export default () => {
 ```
 
 ## Parameters
-useChecklist(data, options)
+### useChecklist(data, options)
 ### data
 Type: `Array`\
 Item list for check.
