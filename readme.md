@@ -12,18 +12,19 @@ $ npm install react-checklist
 
 ## Usage
 
+### Basic
 ```jsx
 import { useChecklist } from 'react-checklist';
 // or const { useChecklist } = require('react-checklist');
 
 const data = [
-  { id: 1, label: 'item 1' },
-  { id: 2, label: 'item 2' },
-  { id: 3, label: 'item 3' },
+  { _id: 1, label: 'item 1' },
+  { _id: 2, label: 'item 2' },
+  { _id: 3, label: 'item 3' },
 ]
 
 export default () => {
-  const { handleChange, checkAllRef, checkedItem } = useChecklist(data);
+  const { handleCheck, isCheckedAll, checkedItems } = useChecklist(data, { key: '_id' });
 
   return (
     <ul>
@@ -31,7 +32,8 @@ export default () => {
       <li>
         <input
           type="checkbox"
-          ref={checkAllRef}                 // 1
+          onChange={handleCheck}              // 1
+          checked={isCheckedAll}              // 2
         />
         <label>label</label>
       </li>
@@ -40,11 +42,11 @@ export default () => {
         <li key={i}>
           <input
             type="checkbox"
-            data-id={v.id}                  // 2
-            onChange={handleChange}         // 3
-            checked={checkedItem.has(v.id)} // 4
+            data-key={v._id}                  // 3
+            onChange={handleCheck}            // 4
+            checked={checkedItems.has(v._id)} // 5
           />
-          <label>{v.label}<label>
+          <label>{v.label}</label>
         </li>
       ))}
 
@@ -52,27 +54,83 @@ export default () => {
   );
 };
 ```
+---
+### Without Checkbox
+```jsx
+<ul>
 
+  <li>
+    <button onClick={handleCheck}>
+      {isCheckedAll ? 'Cancel' : 'Check All'}
+    </button>
+  </li>
 
-## API
+  {data.map((v, i) => (
+    <li key={i}>
+      <span
+        data-key={v._id}
+        onClick={handleCheck}
+        style={{ backgroundColor: checkedItems.has(v._id) ? 'hotpink' : 'white' }}
+      >
+        {v.label}
+      </span>
+    </li>
+  ))}
 
-### checkAllRef
+<ul>
+```
+---
+### With Reset Button
+```jsx
 
-Type: `RefObject`\
+export default () => {
+  const { handleCheck, isCheckedAll, checkedItems, setCheckedItems } = useChecklist(data);
+
+  const handleReset = () => setCheckedItems(new Set());
+
+  return (
+    <ul>
+
+      <li>
+        <button onClick={handleReset}>
+          Reset
+        </button>
+      </li>
+
+    <ul>
+  );
+};
+```
+
+## Parameters
+useChecklist(data, options)
+### data
+Type: `Array`\
+Item list for check.
+
+### options
+Type: `Object`
+
+- key\
+Type: `String`\
+Default: `'id'`\
+Unique key of item list for check.
+
+## Return
+
+### isCheckedAll
+Type: `Boolean`\
 Check all item reference.
 
-### checkedItem
-
+### checkedItems
 Type: `Set`\
-Set of checked item.
+Set of checked items.
 
-### setCheckedItem
-
+### setCheckedItems
 Type: `(Set) => void`\
-'setState' function for checkedItem.
+'setState' function for checkedItems.
 
-### handleChange
-
+### handleCheck
 Type: `(Event) => void`\
 Trigger onChange event for item list.
 

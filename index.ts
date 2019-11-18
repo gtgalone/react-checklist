@@ -1,55 +1,26 @@
-import { useRef, useState, useEffect, RefObject } from 'react';
-import { Router } from 'next/router';
+import { useState } from 'react';
 
-export const useChecklist = (data: any[]) => {
-  const checkAllRef: RefObject<any> = useRef();
-  const [checkedItem, setCheckedItem] = useState(new Set());
-
-  useEffect(() => {
-    if (!checkAllRef.current) {
-      return;
-    }
-
-    checkAllRef.current.onchange = () => {
-      if (checkedItem.size === data.length || checkAllRef.current.checked === false) {
-        setCheckedItem(new Set());
-      } else {
-        setCheckedItem(new Set(data.map(v => v.index)));
-      }
-    };
-
-    const resetCheckBox = () => {
-      checkAllRef.current.checked = false;
-      setCheckedItem(new Set());
-    };
-
-    Router.events.on('routeChangeComplete', resetCheckBox);
-    return () => {
-      Router.events.off('routeChangeComplete', resetCheckBox);
-    };
-  });
-
+export const useChecklist = (data: any[] = [], options: { key: string } = { key: 'id' }) => {
+  const [checkedItems, setCheckedItems]:
+    [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
   return {
-    checkAllRef,
-    checkedItem,
-    setCheckedItem,
-    handleChange: e => {
-      const { id } = e.currentTarget.dataset;
-      if (checkedItem.has(id)) {
-        checkedItem.delete(id);
-      } else {
-        checkedItem.add(id);
+    isCheckedAll: checkedItems.size === data.length,
+    checkedItems,
+    setCheckedItems,
+    handleCheck: (e) => {
+      const { key } = e.currentTarget.dataset;
+      if (key) {
+        if (checkedItems.has(key)) {
+          checkedItems.delete(key);
+        } else {
+          checkedItems.add(key);
+        }
+        return setCheckedItems(new Set(checkedItems));
       }
-      setCheckedItem(new Set(checkedItem));
-      if (!checkAllRef.current) {
-        return;
+      if (checkedItems.size === data.length) {
+        return setCheckedItems(new Set());
       }
-      if (checkAllRef.current.checked) {
-        checkAllRef.current.checked = false;
-      }
-      if (checkedItem.size === data.length) {
-        checkAllRef.current.checked = true;
-      }
+      setCheckedItems(new Set(data.map((v) => v[options.key])));
     },
   };
 };
