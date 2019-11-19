@@ -4,7 +4,7 @@ export const useChecklist = (data: any[] = [], options: { key: string } = { key:
   const [checkedItems, setCheckedItems]:
     [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
   return {
-    isCheckedAll: checkedItems.size === data.length,
+    isCheckedAll: (data.length === 0) ? false : (checkedItems.size === data.length),
     checkedItems,
     setCheckedItems,
     handleCheck: (e) => {
