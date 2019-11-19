@@ -129,6 +129,7 @@ Type: `Set`
 
 ### setCheckedItems
 Function for setting checkedItems state.\
+You can handling checked items for `onRouteChanged` Event with this function.\
 Type: `(Set) => void`
 
 ### handleCheck
