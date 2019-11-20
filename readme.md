@@ -26,6 +26,8 @@ const data = [
 export default () => {
   const { handleCheck, isCheckedAll, checkedItems } = useChecklist(data, { key: '_id' });
 
+  console.log(checkedItems);      // Set(0) - handling with Set
+  console.log([...checkedItems]); // []     - handling with Array
   return (
     <ul>
 
