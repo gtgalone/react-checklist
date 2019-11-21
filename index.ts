@@ -1,6 +1,11 @@
 import { useState } from 'react';
 
-export const useChecklist = (data: any[] = [], options: { key: string, keyType: 'string' | 'number' } = { key: 'id', keyType: 'string' }) => {
+export interface ChecklistOptions {
+  key?: string | undefined
+  keyType?: 'string' | 'number' | undefined
+}
+
+export const useChecklist = (data: any[] = [], options: ChecklistOptions = { key: 'id', keyType: 'string' }) => {
   const [checkedItems, setCheckedItems]:
     [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
   return {
@@ -23,7 +28,7 @@ export const useChecklist = (data: any[] = [], options: { key: string, keyType: 
       if (checkedItems.size === data.length) {
         return setCheckedItems(new Set());
       }
-      setCheckedItems(new Set(data.map((v) => v[options.key])));
+      setCheckedItems(new Set(data.map((v) => v[options.key!])));
     },
   };
 };
