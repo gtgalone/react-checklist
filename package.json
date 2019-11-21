@@ -1,6 +1,6 @@
 {
 	"name": "react-checklist",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Make list with checkbox easy and simple",
 	"license": "MIT",
 	"repository": "gtgalone/react-checklist",
@@ -9,15 +9,18 @@
 		"email": "jehunseem@gmail.com",
 		"url": "https://github.com/gtgalone"
 	},
-	"engines": {
-		"node": ">=6"
-	},
 	"scripts": {
-		"test": ""
+    "build:cjs": "tsc",
+    "build:esm": "tsc -m esNext --outDir esm",
+		"build": "yarn build:cjs && yarn build:esm"
 	},
 	"main": "lib/index.js",
+	"module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "typings": "lib/index.d.ts",
 	"files": [
-		"lib"
+		"lib",
+		"esm"
 	],
 	"keywords": [
 		"checkbox",
