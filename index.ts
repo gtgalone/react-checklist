@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export const useChecklist = (data: any[] = [], options: { key: string } = { key: 'id' }) => {
+export const useChecklist = (data: any[] = [], options: { key: string, keyType: 'string' | 'number' } = { key: 'id', keyType: 'string' }) => {
   const [checkedItems, setCheckedItems]:
     [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
   return {
@@ -8,8 +8,11 @@ export const useChecklist = (data: any[] = [], options: { key: string } = { key:
     checkedItems,
     setCheckedItems,
     handleCheck: (e) => {
-      const { key } = e.currentTarget.dataset;
+      let key = e.currentTarget.dataset.key;
       if (key) {
+        if (options.keyType === 'number') {
+          key = parseInt(key, 10);
+        }
         if (checkedItems.has(key)) {
           checkedItems.delete(key);
         } else {

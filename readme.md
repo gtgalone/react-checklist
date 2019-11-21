@@ -14,6 +14,8 @@ $ npm install react-checklist
 
 ### Basic
 ```jsx
+import React from 'react';
+
 import { useChecklist } from 'react-checklist';
 // or const { useChecklist } = require('react-checklist');
 
@@ -24,7 +26,10 @@ const data = [
 ]
 
 export default () => {
-  const { handleCheck, isCheckedAll, checkedItems } = useChecklist(data, { key: '_id' });
+  const { handleCheck, isCheckedAll, checkedItems } = useChecklist(data, {
+    key: '_id',
+    keyType: 'number',
+  });
 
   console.log(checkedItems);      // Set(0) - handling with Set
   console.log([...checkedItems]); // []     - handling with Array
@@ -37,7 +42,7 @@ export default () => {
           onChange={handleCheck}              // 1
           checked={isCheckedAll}              // 2
         />
-        <label>label</label>
+        <label>Check All</label>
       </li>
 
       {data.map((v, i) => (
@@ -52,7 +57,7 @@ export default () => {
         </li>
       ))}
 
-    <ul>
+    </ul>
   );
 };
 ```
@@ -79,7 +84,7 @@ export default () => {
     </li>
   ))}
 
-<ul>
+</ul>
 ```
 ---
 ### With Reset Button
@@ -99,7 +104,7 @@ export default () => {
         </button>
       </li>
 
-    <ul>
+    </ul>
   );
 };
 ```
@@ -118,6 +123,10 @@ Type: `Object`
   Type: `String`\
   Default: `'id'`
 
+- `keyType`\
+  Type of key. You can define type for `data-key` value.\
+  Type: `Enum 'string' | 'number'`\
+  Default: `'string'`
 
 ## Return
 
