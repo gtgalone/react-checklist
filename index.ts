@@ -5,11 +5,17 @@ export interface ChecklistOptions {
   keyType?: 'string' | 'number' | undefined
 }
 
-export const useChecklist = (data: any[] = [], options: ChecklistOptions = { key: 'id', keyType: 'string' }) => {
+export const useChecklist = (data: any[], options: ChecklistOptions = { key: 'id', keyType: 'string' }) => {
   const [checkedItems, setCheckedItems]:
     [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
+
+  if (!(data instanceof Array)) { data = []; }
+  if (options === null) { options = {}; }
+  if (!options.key) { options.key = 'id'; }
+  if (!options.keyType) { options.keyType = 'string'; }
+
   return {
-    isCheckedAll: (!data || (data.length === 0)) ? false : (checkedItems.size === data.length),
+    isCheckedAll: (data.length === 0) ? false : (checkedItems.size === data.length),
     checkedItems,
     setCheckedItems,
     handleCheck: (e) => {
