@@ -5,14 +5,13 @@ React Hook Checkbox List. This module targets Node.js 6 or later.
 - Typescript support
 - Unopinionated
 - No dependencies
-- Tiny package size 2.9KB
+- Tiny package size 3KB
 
 ## Install
 
 ```
 $ npm install react-checklist
 ```
-
 
 ## Usage
 
@@ -93,7 +92,6 @@ export default () => {
 ---
 ### With Reset Button
 ```jsx
-
 export default () => {
   const { setCheckedItems } = useChecklist(data);
 
@@ -135,7 +133,7 @@ Type: `Object`
 ## Return
 
 ### isCheckedAll
-Check all item reference.\
+You can get `true` or `false` that all item are checked or not.\
 Type: `Boolean`
 
 ### checkedItems
@@ -154,7 +152,6 @@ Type: `(Event) => void`
 ## Maintainer
 
 - [Jehun Seem](https://github.com/gtgalone)
-
 
 ## License
 
