@@ -5,7 +5,7 @@ React Hook Checkbox List. This module targets Node.js 6 or later.
 - Typescript support
 - Unopinionated
 - No dependencies
-- Tiny package size 3KB
+- Tiny package size
 
 ## Install
 
