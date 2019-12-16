@@ -1,6 +1,6 @@
 # react-checklist [![Build Status](https://travis-ci.org/gtgalone/react-checklist.svg?branch=master)](https://travis-ci.org/gtgalone/react-checklist)
 
-React Hook Checkbox List. This module targets Node.js 6 or later.
+React Hook Checkbox List.
 
 - Typescript support
 - Unopinionated
@@ -11,6 +11,8 @@ React Hook Checkbox List. This module targets Node.js 6 or later.
 
 ```
 $ npm install react-checklist
+or
+$ yarn add react-checklist
 ```
 
 ## Usage
