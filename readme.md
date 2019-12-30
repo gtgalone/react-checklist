@@ -151,6 +151,11 @@ Type: `(Set) => void`
 Trigger onChange event for item list.\
 Type: `(Event) => void`
 
+## Recommend Libraries
+
+- [React Store](https://github.com/gtgalone/react-store) - React Hook Store with useContext and useReducer for State Management.
+- [React Quilljs](https://github.com/gtgalone/react-quilljs) - React Hook Wrapper for Quill(Rich Text Editor).
+
 ## Maintainer
 
 - [Jehun Seem](https://github.com/gtgalone)
