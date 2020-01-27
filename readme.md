@@ -151,6 +151,7 @@ Type: `(Set) => void`
 Trigger onChange event for item list.\
 Type: `(Event) => void`
 
+---
 ## Recommend Libraries
 
 - [React Store](https://github.com/gtgalone/react-store) - React Hook Store with useContext and useReducer for State Management.
