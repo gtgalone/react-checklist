@@ -155,6 +155,7 @@ Type: `(Event) => void`
 
 - [React Store](https://github.com/gtgalone/react-store) - React Hook Store with useContext and useReducer for State Management.
 - [React Quilljs](https://github.com/gtgalone/react-quilljs) - React Hook Wrapper for Quill(Rich Text Editor).
+- [Decode URI Component Charset](https://github.com/gtgalone/decode-uri-component-charset) - Decode URI Component with Charset such as 'euc-kr' without tears.
 
 ## Maintainer
 
