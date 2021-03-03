@@ -19,6 +19,7 @@ export const useChecklist = (data: any[], options: ChecklistOptions = { key: 'id
     checkedItems,
     setCheckedItems,
     handleCheck: (e) => {
+      e.stopPropagation();
       let key = e.currentTarget.dataset.key;
       if (key) {
         if (options.keyType === 'number') {
