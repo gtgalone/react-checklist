@@ -5,6 +5,12 @@ export interface ChecklistOptions {
   keyType?: 'string' | 'number' | undefined
 }
 
+/**
+ * 
+ * @param data item list for check. https://github.com/gtgalone/react-checklist#data
+ * @param options option for check. https://github.com/gtgalone/react-checklist#options
+ * @returns return properties. https://github.com/gtgalone/react-checklist#return
+ */
 export const useChecklist = (data: any[], options: ChecklistOptions = { key: 'id', keyType: 'string' }) => {
   const [checkedItems, setCheckedItems]:
     [Set<number | string>, (set: Set<number | string>) => void] = useState(new Set());
